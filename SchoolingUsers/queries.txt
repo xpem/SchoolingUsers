@@ -1,0 +1,35 @@
+create Database EmanuelEstudosTemp
+
+use EmanuelEstudosTemp
+
+create table Users(
+id int primary key identity(1,1),
+name varchar(100) not null,
+lastName varchar(200) not null,
+email varchar(200) not null,
+birthDate date not null,
+schoolingId int not null,
+historicSchooling int
+)
+
+ALTER TABLE Users
+ADD FOREIGN KEY (schoolingId) REFERENCES Schooling(id); 
+
+
+create table Schooling(
+id int primary key identity(1,1),
+description varchar(400) not null,
+)
+
+
+drop table Schooling
+
+
+insert into Schooling values('Infantil')
+insert into Schooling values('Fundamental')
+insert into Schooling values('Médio')
+insert into Schooling values('Superior')
+
+
+
+select * from Users
