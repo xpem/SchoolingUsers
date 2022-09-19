@@ -16,11 +16,10 @@ builder.Services.AddSwaggerGen();
 
 var connectionString = builder.Configuration.GetConnectionString("DevConnection");
 
-//
+//DI
 builder.Services.AddDbContext<UserContext>(x => x.UseSqlServer(connectionString));
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserRepository<User>, UserRepository<User>>();
-
 //
 
 var app = builder.Build();
