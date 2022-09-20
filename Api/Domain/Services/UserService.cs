@@ -56,13 +56,15 @@ namespace Domain.Services
             return new Result() { Success = true };
         }
 
-        public void Delete(int id)
+        public Result Delete(int id)
         {
             var user = GetUser(id);
 
-            if (user == null) return;
+            if (user == null) return new Result() { Success = false, Message = "User Not Found" };
 
             UserRepository.Delete(user);
+
+            return new Result() { Success = true };
         }
 
         public User? GetUser(int id) { User? user = UserContext.Users?.FirstOrDefault(c => c.Id == id); return user; }

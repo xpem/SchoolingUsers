@@ -8,7 +8,6 @@ namespace Repositories.UserRepository
         void Insert(User entity);
         void Update(User entity);
         void Delete(User entity);
-        void SaveChanges();
 
     }
 }

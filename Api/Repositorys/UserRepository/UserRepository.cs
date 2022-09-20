@@ -20,14 +20,14 @@ namespace Repositories.UserRepository
         #endregion
 
 
-        public void Delete(T entity)
+        public async void Delete(T entity)
         {
             if (entity == null)
             {
                 throw new ArgumentNullException("entity");
             }
             entities.Remove(entity);
-            _applicationDbContext.SaveChanges();
+           await _applicationDbContext.SaveChangesAsync();
         }
 
         public List<T> GetAll()
@@ -35,22 +35,17 @@ namespace Repositories.UserRepository
             return entities.ToList();
         }
 
-        public void Insert(T entity)
+        public async void Insert(T entity)
         {
             if (entity == null)
             {
                 throw new ArgumentNullException("entity");
             }
             entities.Add(entity);
-            _applicationDbContext.SaveChanges();
+           await _applicationDbContext.SaveChangesAsync();
         }
 
-        public void SaveChanges()
-        {
-            _applicationDbContext.SaveChanges();
-        }
-
-        public void Update(T entity)
+        public async void Update(T entity)
         {
             if (entity == null)
             {
@@ -58,7 +53,7 @@ namespace Repositories.UserRepository
             }
 
             entities.Update(entity);
-            _applicationDbContext.SaveChanges();
+           await _applicationDbContext.SaveChangesAsync();
         }
     }
 }

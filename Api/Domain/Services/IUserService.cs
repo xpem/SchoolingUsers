@@ -13,7 +13,7 @@ namespace Domain.Services
 
         Result UpdateUser(User user);
 
-        void Delete(int id);
+        Result Delete(int id);
 
     }
 }

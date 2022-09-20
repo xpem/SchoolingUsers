@@ -25,10 +25,10 @@ namespace SchoolingUsers.Controllers
             try
             {
                 if (userDTO == null) return NotFound();
-                
+
                 User user = new() { Name = userDTO.Name, LastName = userDTO.LastName, Email = userDTO.Email, BirthDate = userDTO.BirthDate, SchoolingId = userDTO.SchoolingId };
 
-               Result result =  UserService.AddUser(user);
+                Result result = UserService.AddUser(user);
 
                 if (!result.Success)
                 {
@@ -91,17 +91,17 @@ namespace SchoolingUsers.Controllers
         }
 
         [HttpDelete(Name = "DeleteUser")]
-        public void Delete(int id)
+        public ActionResult<User> Delete(int id)
         {
             try
             {
-                UserService.Delete(id);
-
+                Result result = UserService.Delete(id);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+            return Ok("User Deleted");
         }
     }
 }

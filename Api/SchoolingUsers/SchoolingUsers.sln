@@ -18,8 +18,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "..\Models\Models.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SchoolingUsersTests", "..\SchoolingUsersTests\SchoolingUsersTests.csproj", "{4332E708-3C6B-46BD-9175-444977016C66}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{AECAEAA0-786F-47C0-B595-4AD01DCC2FB3}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,13 +47,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{48DA815F-0C4F-4BF3-A1D6-3F687F4A0867} = {AECAEAA0-786F-47C0-B595-4AD01DCC2FB3}
-		{48802D4E-67CB-43D6-BDE3-5348229041C9} = {AECAEAA0-786F-47C0-B595-4AD01DCC2FB3}
-		{C71E4348-92BB-4C07-981F-942F54099E1D} = {AECAEAA0-786F-47C0-B595-4AD01DCC2FB3}
-		{CEAF5285-FD44-4BE6-860A-59EB5EFD8945} = {AECAEAA0-786F-47C0-B595-4AD01DCC2FB3}
-		{4332E708-3C6B-46BD-9175-444977016C66} = {AECAEAA0-786F-47C0-B595-4AD01DCC2FB3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5C1493B0-41C3-4901-BE4A-60441FD96CBB}
