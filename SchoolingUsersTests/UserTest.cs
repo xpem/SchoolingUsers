@@ -38,6 +38,7 @@ namespace SchoolingUsersTests
             mock.Setup(p => p.GetUser(id)).Returns(user);
             UserController userController = new(mock.Object);
             Microsoft.AspNetCore.Mvc.ActionResult<User> result = userController.Get(id);
+
             Assert.Same(user, ((OkObjectResult)result.Result).Value);
         }
 
@@ -57,7 +58,7 @@ namespace SchoolingUsersTests
         [Fact]
         public void CannotCreateAnUserWithABirthDateInAFutureDate()
         {
-            User user = new User() { Name = "Alpha", BirthDate = DateTime.Now.AddYears(+2).Date, Email = "Alpha@gmail.com", LastName = "Alpha", SchoolingId = 1, Id = 1 };
+            User user = new() { Name = "Alpha", BirthDate = DateTime.Now.AddYears(+2).Date, Email = "Alpha@gmail.com", LastName = "Alpha", SchoolingId = 1, Id = 1 };
             Result resultFail = new Result() { Success = false, Message = "Birth date can't be a future date." };
 
             Result result = UserService.ValidateUser(user);

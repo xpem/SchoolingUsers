@@ -8,16 +8,27 @@ namespace Models
         [Key]
         public int Id { get; set; }
 
+        [Required]
+        [Column(TypeName ="nvarchar(100)")]
         public string? Name { get; set; }
 
+        [Required]
+        [Column(TypeName = "nvarchar(200)")]
         public string? LastName { get; set; }
 
+        [Required]
+        [Column(TypeName = "nvarchar(200)")]
         public string? Email { get; set; }
 
+        [Required]
+        [Column(TypeName = "date")]
         public DateTime BirthDate { get; set; }
 
+        [Required]
+        [Column(TypeName = "int")]
         public int SchoolingId { get; set; }
 
+        [Column(TypeName = "int")]
         public int HistoricSchooling { get; set; }
 
     }
