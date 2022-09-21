@@ -42,13 +42,14 @@ namespace Domain.Services
 
             if (user.Email == null) return new Result() { Success = false, Message = "Email is Required" };
 
+            //todo validar se email já existe
 
             if (!Utils.ValidateEmail.IsValidEmail(user.Email))
             {
                 return new Result() { Success = false, Message = "Invalid Email" };
             }
 
-            if (user.SchoolingId < 0 || user.SchoolingId > 2)
+            if (user.SchoolingId < 1 || user.SchoolingId > 3)
             {
                 return new Result() { Success = false, Message = "Invalid SchoolingId" };
             }

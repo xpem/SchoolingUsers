@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Models
 {
+    
     public class User
     {
         [Key]
@@ -25,11 +26,12 @@ namespace Models
         public DateTime BirthDate { get; set; }
 
         [Required]
-        [Column(TypeName = "int")]
+        [ForeignKey("Schooling")]
         public int SchoolingId { get; set; }
+
+        public Schooling? Schooling { get; set; }
 
         [Column(TypeName = "int")]
         public int HistoricSchooling { get; set; }
-
     }
 }

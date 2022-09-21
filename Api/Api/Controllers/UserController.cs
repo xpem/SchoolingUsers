@@ -1,11 +1,9 @@
-﻿
+﻿using Api.DTO;
 using Domain.Services;
 using Microsoft.AspNetCore.Mvc;
 using Models;
-using SchoolingUsers.DTO;
 
-
-namespace SchoolingUsers.Controllers
+namespace Api.Controllers
 {
     [Route("[controller]")]
     [ApiController]

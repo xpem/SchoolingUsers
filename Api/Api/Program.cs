@@ -1,9 +1,10 @@
-using Microsoft.Extensions.Configuration;
-using Models;
+
+
+using Domain.Services;
 using Microsoft.EntityFrameworkCore;
+using Models;
 using Repositories.Contexts;
 using Repositories.UserRepository;
-using Domain.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,7 +23,9 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserRepository<User>, UserRepository<User>>();
 //
 
+
 var app = builder.Build();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

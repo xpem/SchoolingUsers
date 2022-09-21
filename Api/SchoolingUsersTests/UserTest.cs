@@ -1,9 +1,9 @@
+using Api.Controllers;
+using Api.DTO;
 using Domain.Services;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 using Moq;
-using SchoolingUsers.Controllers;
-using SchoolingUsers.DTO;
 
 namespace SchoolingUsersTests
 {
@@ -14,7 +14,7 @@ namespace SchoolingUsersTests
 
 
         [Fact]
-        public void ShouldGetUser()
+        public void ShouldGetUsers()
         {
             List<User> users = new()
             {
@@ -70,8 +70,8 @@ namespace SchoolingUsersTests
         [Fact]
         public void CannotCreateAnUserWithAInvalidEmail()
         {
-            User user = new User() { Name = "Alpha", BirthDate = DateTime.Now.AddYears(-2).Date, Email = null, LastName = "Alpha", SchoolingId = 1, Id = 1 };
-            Result resultFail = new Result() { Success = false, Message = "Email is Required" };
+            User user = new() { Name = "Alpha", BirthDate = DateTime.Now.AddYears(-2).Date, Email = null, LastName = "Alpha", SchoolingId = 1, Id = 1 };
+            Result resultFail = new() { Success = false, Message = "Email is Required" };
 
             Result result = UserService.ValidateUser(user);
 

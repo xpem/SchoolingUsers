@@ -1,0 +1,6 @@
+in repository
+
+Install-Package Microsoft.EntityFrameworkCore.Tools
+
+Add-migrations "<commit name>"
+Update-Database
