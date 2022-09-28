@@ -10,7 +10,5 @@ namespace Models
 
         [Column(TypeName = "nvarchar(100)")]
         public string? Description { get; set; }
-
-        public ICollection<User>? Users { get; set; }
     }
 }

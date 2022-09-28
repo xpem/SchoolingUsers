@@ -32,7 +32,7 @@ namespace Repositories.UserRepository
 
         public List<T> GetAll()
         {
-            return entities.ToList();
+            return entities.Include(e => e.Schooling).ToList();
         }
 
         public async Task Insert(T entity)

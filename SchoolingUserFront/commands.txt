@@ -1,0 +1,11 @@
+ng g c user-detail 
+
+ng g s shared/user-detail
+
+ng g class  shared/user-detail --type=model
+
+
+https://www.npmjs.com/package/@fortawesome/angular-fontawesome
+
+npm install --save ngx-mask
+npm i ngx-toastr

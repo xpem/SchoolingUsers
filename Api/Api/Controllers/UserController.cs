@@ -33,7 +33,7 @@ namespace Api.Controllers
                     return ValidationProblem(result.Message);
                 }
 
-                return Ok("User Added");
+                return Ok(result);
 
             }
             catch (Exception ex)
@@ -63,7 +63,7 @@ namespace Api.Controllers
                     return ValidationProblem(result.Message);
                 }
 
-                return Ok("User Updated");
+                return Ok(result);
             }
             catch (Exception ex)
             {
@@ -91,15 +91,16 @@ namespace Api.Controllers
         [HttpDelete(Name = "DeleteUser")]
         public ActionResult<User> Delete(int id)
         {
+            Result result;
             try
             {
-                Result result = UserService.Delete(id);
+                result = UserService.Delete(id);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            return Ok("User Deleted");
+            return Ok(result);
         }
     }
 }

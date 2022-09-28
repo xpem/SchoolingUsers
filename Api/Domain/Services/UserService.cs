@@ -8,10 +8,9 @@ namespace Domain.Services
     {
 
         #region Property
-        private IUserRepository<User> UserRepository;
-        private UserContext UserContext;
+        private readonly IUserRepository<User> UserRepository;
+        private readonly UserContext UserContext;
         #endregion
-
 
         #region Constructor
         public UserService(IUserRepository<User> userRepository, UserContext userContext)
@@ -49,7 +48,7 @@ namespace Domain.Services
                 return new Result() { Success = false, Message = "Invalid Email" };
             }
 
-            if (user.SchoolingId < 1 || user.SchoolingId > 3)
+            if (user.SchoolingId < 1 || user.SchoolingId > 4)
             {
                 return new Result() { Success = false, Message = "Invalid SchoolingId" };
             }
