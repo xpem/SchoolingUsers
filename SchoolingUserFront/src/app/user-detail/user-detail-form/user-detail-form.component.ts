@@ -21,6 +21,11 @@ export class UserDetailFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
+
+    if (this.id && Number(this.id) > 0) {
+      
+      this.service.getUserDetail(Number(this.id));
+    }
   }
 
   onSubmit(form: NgForm) {

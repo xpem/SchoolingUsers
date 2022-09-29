@@ -15,11 +15,11 @@
       </thead>
       <tbody>
         <tr *ngFor="let ud of service.list">
-          <td>{{ ud.Name }} {{ ud.LastName }}</td>
-          <td>{{ ud.Email }}</td>
-          <td>{{ ud.BirthDate }}</td>
-          <td>{{ ud.SchoolingDescription }}</td>
-          <td><i class="far fa-trash-alt fa-lg text-danger"></i></td>
+          <td> <a [routerLink]="['/cadUser',ud.id]">{{ ud.name }} {{ ud.lastName }}</a></td>
+          <td>{{ ud.email }}</td>
+          <td>{{ ud.birthDate }}</td>
+          <td>{{ ud.schoolingDescription }}</td>
+          <td><fa-icon [icon]="faTrash" class="text-danger"></fa-icon></td>
         </tr>
       </tbody>
     </table>

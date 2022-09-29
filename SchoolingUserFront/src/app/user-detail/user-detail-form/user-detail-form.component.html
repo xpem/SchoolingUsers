@@ -1,5 +1,5 @@
 <form novalidate #form="ngForm" (submit)="onSubmit(form)">
-  <input type="hidden" name="Id" [value]="service.formData.Id" />
+  <input type="hidden" name="Id" [value]="service.formData.id" />
   <div class="form-group">
     <div class="row pb-2">
       <div class="col-md-4">
@@ -9,7 +9,7 @@
           class="form-control form-control-lg"
           name="Name"
           #Name="ngModel"
-          [(ngModel)]="service.formData.Name"
+          [(ngModel)]="service.formData.name"
           required
           [class.invalid]="Name.invalid && Name.touched"
         />
@@ -21,7 +21,7 @@
           class="form-control form-control-lg"
           name="LastName"
           #LastName="ngModel"
-          [(ngModel)]="service.formData.LastName"
+          [(ngModel)]="service.formData.lastName"
           required
           [class.invalid]="LastName.invalid && LastName.touched"
         />
@@ -37,7 +37,7 @@
         placeholder="email@email.com"
         name="Email"
         #Email="ngModel"
-        [(ngModel)]="service.formData.Email"
+        [(ngModel)]="service.formData.email"
         required
         [class.invalid]="Email.invalid && Email.touched"
       />
@@ -50,7 +50,7 @@
         placeholder="dd/mm/aaaa"
         name="BirthDate"
         #BirthDate="ngModel"
-        [(ngModel)]="service.formData.BirthDate"
+        [(ngModel)]="service.formData.birthDate"
         mask="d0/M0/0000"
         [leadZeroDateTime]="true"
         required
@@ -65,7 +65,7 @@
         class="form-select"
         name="SchoolingId"
         #SchoolingId="ngModel"
-        [(ngModel)]="service.formData.SchoolingId"
+        [(ngModel)]="service.formData.schoolingId"
         required
       >
         <option selected disabled>Selecione</option>

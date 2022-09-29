@@ -1,9 +1,9 @@
 export class UserDetail {
-  Id: number = 0;
-  Name: string = '';
-  LastName: string = '';
-  Email: string = '';
-  BirthDate: string = '';
-  SchoolingId: number = 0;
-  SchoolingDescription: string = '';
+  id: number = 0;
+  name: string = '';
+  lastName: string = '';
+  email: string = '';
+  birthDate: string = '';
+  schoolingId: number = 0;
+  schoolingDescription: string = '';
 }

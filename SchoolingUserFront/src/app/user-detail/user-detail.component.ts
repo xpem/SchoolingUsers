@@ -2,6 +2,8 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UserDetail } from '../shared/user-detail.model';
 import { UserDetailService } from '../shared/user-detail.service';
+import { faPenAlt,faTrash } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-detail',
@@ -11,8 +13,12 @@ import { UserDetailService } from '../shared/user-detail.service';
 export class UserDetailComponent implements OnInit {
   constructor(
     public service: UserDetailService,
-    private changeDetector: ChangeDetectorRef
+    private changeDetector: ChangeDetectorRef,
+    private router: Router
   ) {}
+
+  faPenAlt = faPenAlt;
+  faTrash = faTrash;
 
   ngOnInit(): void {
     this.service.refreshList();
