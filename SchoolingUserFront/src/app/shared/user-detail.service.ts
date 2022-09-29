@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { UserDetail } from './user-detail.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { lastValueFrom } from 'rxjs';
+import { faCropSimple } from '@fortawesome/free-solid-svg-icons';
 @Injectable({
   providedIn: 'root',
 })
@@ -14,14 +15,42 @@ export class UserDetailService {
   list: UserDetail[] = [];
 
   postUserDetail() {
-    this.formData.BirthDate =
-      this.formData.BirthDate.substring(4, 8) +
+    this.formData.birthDate =
+      this.formData.birthDate.substring(4, 8) +
       '-' +
-      this.formData.BirthDate.substring(2, 4) +
+      this.formData.birthDate.substring(2, 4) +
       '-' +
-      this.formData.BirthDate.substring(0, 2);
+      this.formData.birthDate.substring(0, 2);
 
     return this.http.post(this.baseURL, this.formData);
+  }
+
+  getUserDetail(id: number) {
+    let birthDate = new Date();
+    this.formData = new UserDetail();
+    lastValueFrom(this.http.get(this.baseURL + '/' + id)).then((res) => {
+      if (res) {
+        const ud = res as UserDetail;
+        const teste = res as any
+        if (ud.birthDate) {
+          birthDate = new Date(ud.birthDate);
+
+          this.formData = {
+            id: teste.id,
+            name: ud.name,
+            lastName: ud.lastName,
+            email: ud.email,
+            schoolingId: ud.schoolingId,
+            birthDate: birthDate.toLocaleString('pt-BR', {
+              year: 'numeric',
+              month: '2-digit',
+              day: '2-digit',
+            }) as string,
+            schoolingDescription: '',
+          } as UserDetail;
+        }
+      }
+    });
   }
 
   refreshList() {
@@ -35,17 +64,17 @@ export class UserDetailService {
         }
 
         this.list.push({
-          Name: d.name as string,
-          Email: d.email as string,
-          BirthDate: birthDate.toLocaleString('pt-BR', {
+          name: d.name as string,
+          email: d.email as string,
+          birthDate: birthDate.toLocaleString('pt-BR', {
             year: 'numeric',
             month: '2-digit',
             day: '2-digit',
           }) as string,
-          Id: d.id as number,
-          LastName: d.lastName as string,
-          SchoolingId: d.schoolingId as number,
-          SchoolingDescription: d.schooling.description as string,
+          id: d.id as number,
+          lastName: d.lastName as string,
+          schoolingId: d.schoolingId as number,
+          schoolingDescription: d.schooling.description as string,
         });
       }
     });
