@@ -7,11 +7,9 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { UserDetailFormComponent } from './user-detail/user-detail-form/user-detail-form.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
-import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 
-export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
 
 @NgModule({
   declarations: [AppComponent, UserDetailComponent, UserDetailFormComponent],
@@ -21,7 +19,6 @@ export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
     FontAwesomeModule,
     FormsModule,
     HttpClientModule,
-    NgxMaskModule.forRoot(),
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
   ],

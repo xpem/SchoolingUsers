@@ -14,24 +14,41 @@ export class UserDetailService {
   formData: UserDetail = new UserDetail();
   list: UserDetail[] = [];
 
-  postUserDetail() {
-    this.formData.birthDate =
-      this.formData.birthDate.substring(4, 8) +
+  PostOrPutUserDetail(creating: boolean) {
+    const birthDate =
+      this.formData.birthDate.substring(6, 10) +
       '-' +
-      this.formData.birthDate.substring(2, 4) +
+      this.formData.birthDate.substring(3, 5) +
       '-' +
       this.formData.birthDate.substring(0, 2);
 
-    return this.http.post(this.baseURL, this.formData);
+    const _user = {
+      id: this.formData.id,
+      name: this.formData.name,
+      lastName: this.formData.lastName,
+      birthDate,
+      email: this.formData.email,
+      schoolingId: this.formData.schoolingId,
+    } as UserDetail;
+
+    if (creating) {
+      return this.http.post(this.baseURL, _user);
+    } else {
+      return this.http.put(this.baseURL, _user);
+    }
+  }
+
+  DeleteUserDetail(id:number){
+    return this.http.delete(`${this.baseURL }/${id}`);
   }
 
   getUserDetail(id: number) {
     let birthDate = new Date();
     this.formData = new UserDetail();
-    lastValueFrom(this.http.get(this.baseURL + '/' + id)).then((res) => {
+    lastValueFrom(this.http.get(`${this.baseURL }/${id}`)).then((res) => {
       if (res) {
         const ud = res as UserDetail;
-        const teste = res as any
+        const teste = res as any;
         if (ud.birthDate) {
           birthDate = new Date(ud.birthDate);
 

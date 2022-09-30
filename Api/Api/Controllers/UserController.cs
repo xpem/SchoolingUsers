@@ -88,7 +88,7 @@ namespace Api.Controllers
             return Ok(user);
         }
 
-        [HttpDelete(Name = "DeleteUser")]
+        [HttpDelete("{id}", Name = "DeleteUser")]
         public ActionResult<User> Delete(int id)
         {
             Result result;

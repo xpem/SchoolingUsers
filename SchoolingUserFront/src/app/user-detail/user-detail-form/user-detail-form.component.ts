@@ -23,17 +23,25 @@ export class UserDetailFormComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
 
     if (this.id && Number(this.id) > 0) {
-      
       this.service.getUserDetail(Number(this.id));
     }
   }
 
   onSubmit(form: NgForm) {
-    this.service.postUserDetail().subscribe({
+    let creating = true;
+console.log("id:" + this.id)
+    if (this.id && Number(this.id) > 0) {
+      creating = false;
+    }
+
+    this.service.PostOrPutUserDetail(creating).subscribe({
       complete: () => {
         this.resetForm(form);
-        this.toastr.success('Adicionado com sucesso!');
-
+        if (creating) {
+          this.toastr.success('Adicionado com sucesso!');
+        } else {
+          this.toastr.info('Atualizado com sucesso!');
+        }
         //this.router.navigate(['/teste',{queryParams: {id: 0}}])
         this.router.navigateByUrl('');
       },
